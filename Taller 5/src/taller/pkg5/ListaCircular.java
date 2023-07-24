@@ -35,39 +35,37 @@ public class ListaCircular {
     }
     
     public void ingresar(int x) {
-        NodoListaCircular nuevo = new NodoListaCircular();
-        nuevo.dato = x;
+        NodoListaCircular nuevo = new NodoListaCircular(x, primero);
+        nuevo.setDato(x);
         if (primero == null) {
             primero = nuevo;
             ultimo = primero;
-            primero.siguiente = ultimo;
+            primero.setSiguiente(ultimo);
         } else {
-            ultimo.siguiente = nuevo;
-            nuevo.siguiente = primero;
+            ultimo.setSiguiente(nuevo);
+            nuevo.setSiguiente(primero);
             ultimo = nuevo;
         }
     }
 
     public void verListaCircular() {
-        NodoListaCircular actual = new NodoListaCircular();
-        actual = primero;
+        NodoListaCircular actual = primero;
         do {
-            System.out.println(" " + actual.dato);
-            actual = actual.siguiente;
+            System.out.println(" " + actual.getDato());
+            actual = actual.getSiguiente();
         } while (actual != primero);
     }
 
     public void buscarCircular(int x) {
-        NodoListaCircular actual = new NodoListaCircular();
-        actual = primero;
+        NodoListaCircular actual = primero;
         boolean encontrado = false;
         do {
-            if (actual.dato == x) {
+            if (actual.getDato() == x) {
                 encontrado = true;
             }
-            actual = actual.siguiente;
+            actual = actual.getSiguiente();
         } while (actual != primero);
-        if (encontrado == true) {
+        if (encontrado) {
             System.out.println("encontrado");
         } else {
             System.out.println("no existe");
@@ -75,26 +73,24 @@ public class ListaCircular {
     }
 
     public void eliminar(int dato) {
-        NodoListaCircular actual = new NodoListaCircular();
-        NodoListaCircular anterior = new NodoListaCircular();
-        actual = primero;
-        anterior = ultimo;
+        NodoListaCircular actual = primero;
+        NodoListaCircular anterior = ultimo;
         do {
-            if (actual.dato == dato) {
+            if (actual.getDato() == dato) {
                 if (actual == primero) {
-                    primero = primero.siguiente;
-                    ultimo.siguiente = primero;
+                    primero = primero.getSiguiente();
+                    ultimo.setSiguiente(primero);
                 } else {
                     if (actual == ultimo) {
-                        anterior.siguiente = ultimo.siguiente;
+                        anterior.setSiguiente(ultimo.getSiguiente());
                         ultimo = anterior;
                     } else {
-                        anterior.siguiente = actual.siguiente;
+                        anterior.setSiguiente(actual.getSiguiente());
                     }
                 }
             }
             anterior = actual;
-            actual = actual.siguiente;
+            actual = actual.getSiguiente();
         } while (actual != primero);
     }
     /*public void pasar(lista l){
