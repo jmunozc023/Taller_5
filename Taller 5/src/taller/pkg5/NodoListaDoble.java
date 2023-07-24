@@ -6,10 +6,19 @@ package taller.pkg5;
  */
 public class NodoListaDoble {
     private int dato;
+    private String nombre;
     private NodoListaDoble siguiente;
     private NodoListaDoble anterior;
 
     public NodoListaDoble() {
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getDato() {

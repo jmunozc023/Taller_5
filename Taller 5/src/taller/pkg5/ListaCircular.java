@@ -93,12 +93,4 @@ public class ListaCircular {
             actual = actual.getSiguiente();
         } while (actual != primero);
     }
-    /*public void pasar(lista l){
-        nodoListaSimple actual = new nodoListaSimple();
-        actual = l ;
-        while (l.Vacia()==false) {            
-            ingresar(l.primero);
-            actual = actual.siguiente;            
-        }
-    }*/
 }

@@ -30,8 +30,9 @@ public class ListaDoble {
         this.ultimo = ultimo;
     }
 
-    public void ingresar(int dato) {
+    public void ingresar(String nombre,int dato) {
         NodoListaDoble nodoNuevo = new NodoListaDoble();
+        nodoNuevo.setNombre(nombre);
         nodoNuevo.setDato(dato);
         if (getPrimero()== null) {
             setPrimero(nodoNuevo);
@@ -45,7 +46,7 @@ public class ListaDoble {
             setUltimo(nodoNuevo);
         }
     }
-    public void eliminar(int dato){
+    public void eliminar(String nombre,int dato){
         NodoListaDoble actual = new NodoListaDoble();
         NodoListaDoble anterior = new NodoListaDoble();
         actual= getPrimero();
@@ -61,6 +62,18 @@ public class ListaDoble {
                 }
             }
             anterior = actual;
+            actual = actual.getSiguiente();
+        }
+    }
+    public void MostrarLista(){
+        if (primero == null) {
+            System.out.println("La lista esta vacia");
+            return;
+        }
+        NodoListaDoble actual = new NodoListaDoble();
+        actual= getPrimero();
+        while (actual != null) {            
+            System.out.println("Nombre: "+actual.getNombre() + " Numero: "+ actual.getDato());
             actual = actual.getSiguiente();
         }
     }

@@ -7,7 +7,8 @@ package taller.pkg5;
 public class Taller5 {
 
     public static void main(String[] args) {
-
+        Menu menu = new Menu();
+        menu.Menu();
     }
     
 }
