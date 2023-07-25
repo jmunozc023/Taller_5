@@ -41,7 +41,7 @@ public class Funcionalidad {
         listaDoble.MostrarLista();
     }
     public void LlenarListaSimple (ListaSimple listaSimple, int numero){
-        if (numero <10) {
+        if (numero >10) {
             return;
         }
         listaSimple.ingresarFinal(numero);
