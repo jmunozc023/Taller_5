@@ -17,13 +17,19 @@ public class Funcionalidad {
     public void MostrarCola (Cola cola){
         cola.mostrarCola();
     }
-    public void PasarColaAPila(Cola cola, Pila pila){
-        while (!cola.ColaVacia()) {            
-            int dato = cola.eliminar();
-            pila.push(dato);
+        public void PasarColaAPila(Cola cola, Pila pila){
+            Cola colaRespaldo = new Cola();
+            while (!cola.ColaVacia()) {            
+                int dato = cola.eliminar();
+                colaRespaldo.insertar(dato);
+                pila.push(dato);
+            }
+            while (!colaRespaldo.ColaVacia()) {                
+                int dato = colaRespaldo.eliminar();
+                cola.insertar(dato);
+            }
+            System.out.println("Los datos de la cola han sido transferidos a la Pila");
         }
-        System.out.println("Los datos de la cola han sido transferidos a la Pila");
-    }
     public void mostrarPila(Pila pila){
         pila.mostrarPila();
     }

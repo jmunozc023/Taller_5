@@ -13,8 +13,8 @@ public class Cola {
     private NodoCola inicio, fin;
     private int tama;
 
-    public Cola(int tama) {
-        this.tama = tama;
+    public Cola() {
+        
     }
 
     public NodoCola getInicio() {
@@ -78,14 +78,6 @@ public class Cola {
     public int tamanoCola() {
         return getTama();
     }
-    
-    /*public void mostrarCola(){
-        while (!ColaVacia()) {            
-            int aux = inicioCola();
-            eliminar();
-            System.out.println(aux);
-        }
-    }*/
     public void mostrarCola(){
         NodoCola recorrido= inicio;
         while (recorrido != null) {            

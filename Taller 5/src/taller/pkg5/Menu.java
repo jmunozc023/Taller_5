@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Menu {
     Scanner scanner = new Scanner(System.in);
-    Cola cola = new Cola( 10);
+    Cola cola = new Cola();
     Pila pila = new Pila(10);
     ListaSimple listaSimple = new ListaSimple();
     ListaDoble listaDoble = new ListaDoble();
@@ -32,7 +32,6 @@ public class Menu {
             switch (opcion) {
                 case 1:
                     funcionalidad.LlenarCola(cola, 1);
-                    funcionalidad.MostrarCola(cola);
                     funcionalidad.PasarColaAPila(cola, pila);
                     break;
                 case 2:
@@ -59,7 +58,7 @@ public class Menu {
                     break;
 
             }
-            System.out.println("Opcion incorrecta. Intente de nuevo.");
         } while (opcion != 9);
+        System.out.println("Opcion incorrecta. Intente de nuevo.");
     }
 }
